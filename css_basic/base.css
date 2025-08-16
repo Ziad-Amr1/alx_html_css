@@ -1,0 +1,28 @@
+/* Body as flex column */
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Main as flex row */
+main {
+  display: flex;
+  flex-direction: row;
+  flex: auto;
+}
+
+/* Article takes 2/3 */
+article {
+  flex: 2;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+/* Aside takes 1/3 */
+aside {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+}
