@@ -1,0 +1,100 @@
+/* 7-styles.css
+   Animations for "What we do..." and "Our results" rows.
+   - gentle floating animation (continuous)
+   - scale/rotate on hover for interaction
+   - respects prefers-reduced-motion
+*/
+
+/* target the rows to animate children */
+.animated-row {
+  display: grid;
+  gap: 18px;
+}
+
+/* for cards (what we do) */
+.cards.animated-row {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* for results */
+.results-grid.animated-row {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* base styling tweaks to make animations visible */
+.card, .result-item {
+  transition: transform 240ms cubic-bezier(.2,.8,.2,1), box-shadow 240ms ease, opacity 240ms ease;
+  will-change: transform, opacity;
+  transform-origin: center center;
+}
+
+/* floating animation (slow subtle movement) */
+@keyframes floaty {
+  0% { transform: translateY(0) rotate(0deg) scale(1); }
+  25% { transform: translateY(-6px) rotate(-1deg) scale(1.01); }
+  50% { transform: translateY(0) rotate(0deg) scale(1); }
+  75% { transform: translateY(6px) rotate(1deg) scale(0.99); }
+  100% { transform: translateY(0) rotate(0deg) scale(1); }
+}
+
+/* staggered animation delays so items move out of phase */
+.cards.animated-row .card {
+  animation: floaty 6s ease-in-out infinite;
+}
+.cards.animated-row .card:nth-child(1) { animation-delay: 0s; }
+.cards.animated-row .card:nth-child(2) { animation-delay: 0.9s; }
+.cards.animated-row .card:nth-child(3) { animation-delay: 1.8s; }
+
+/* results items float but slightly faster */
+.results-grid.animated-row .result-item {
+  animation: floaty 5s ease-in-out infinite;
+}
+.results-grid.animated-row .result-item:nth-child(1) { animation-delay: 0s; }
+.results-grid.animated-row .result-item:nth-child(2) { animation-delay: 0.6s; }
+.results-grid.animated-row .result-item:nth-child(3) { animation-delay: 1.2s; }
+.results-grid.animated-row .result-item:nth-child(4) { animation-delay: 1.8s; }
+
+/* hover/tap interactions: scale & lift & subtle rotate */
+.card:hover, .card:focus-within {
+  transform: translateY(-12px) rotate(-1deg) scale(1.06);
+  box-shadow: 0 24px 40px rgba(31,41,55,0.12);
+}
+.result-item:hover, .result-item:focus-within {
+  transform: translateY(-10px) rotate(0.5deg) scale(1.04);
+  box-shadow: 0 20px 36px rgba(31,41,55,0.10);
+}
+
+/* additional micro animation on icons inside cards (pulse) */
+.card .card-icon {
+  display: inline-block;
+  animation: pulse 3.6s ease-in-out infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.08); opacity: 0.95; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.card .card-icon { font-size: 1.8rem; margin-bottom: 8px; }
+
+/* reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .cards.animated-row .card,
+  .results-grid.animated-row .result-item,
+  .card .card-icon {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Responsiveness adjustments */
+@media (max-width: 880px) {
+  .cards.animated-row { grid-template-columns: repeat(2, 1fr); }
+  .results-grid.animated-row { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .cards.animated-row,
+  .results-grid.animated-row {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Headphones — Animated sections</title>
+  <!-- base styles from earlier tasks (assumes 0-styles.css present) -->
+  <link rel="stylesheet" href="0-styles.css">
+  <!-- add the animation stylesheet -->
+  <link rel="stylesheet" href="7-styles.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="brand">
+        <a href="#" class="logo" aria-label="Headphones home">
+          <span class="logo-icon" aria-hidden="true">&#127911;</span>
+          <span class="logo-text">Headphones</span>
+        </a>
+      </div>
+
+      <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+        <ul>
+          <li><a href="0-index.html">Home</a></li>
+          <li><a href="1-index.html">What we do</a></li>
+          <li><a href="2-index.html">Results</a></li>
+          <li><a href="4-index.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="cta-group">
+        <a class="btn btn-primary" href="#">Get started</a>
+        <a class="btn btn-ghost" href="#">Learn more</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <h1 id="hero-title">Sound reimagined — premium audio for creators</h1>
+          <p class="hero-sub">
+            Immerse yourself in studio-quality sound with modern wireless design and extended battery life.
+          </p>
+        </div>
+
+        <div class="hero-right" aria-hidden="true">
+          <div class="hero-device" role="img" aria-label="Headphones product image"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT WE DO (animated) -->
+    <section class="what-we-do" aria-labelledby="what-title">
+      <div class="container">
+        <h2 id="what-title" class="section-title">What we do</h2>
+        <p class="section-lead">We craft high quality audio gear that helps creators produce, listen and share their best work.</p>
+
+        <div class="cards animated-row">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">🎧</div>
+            <h3 class="card-title">Design</h3>
+            <p class="card-text">Human-centered design and premium materials for comfort and durability.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">🔊</div>
+            <h3 class="card-title">Engineering</h3>
+            <p class="card-text">Cutting-edge drivers and tuning to deliver accurate and rich sound.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">🛠️</div>
+            <h3 class="card-title">Support</h3>
+            <p class="card-text">Fast warranty support and a global network of service centers.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR RESULTS (animated) -->
+    <section class="our-results" aria-labelledby="results-title">
+      <div class="container">
+        <h2 id="results-title" class="section-title">Our results</h2>
+        <p class="section-lead">Numbers that show our impact — from product adoption to customer satisfaction.</p>
+
+        <div class="results-grid animated-row">
+          <div class="result-item">
+            <div class="result-value">1.2M</div>
+            <div class="result-label">Users worldwide</div>
+          </div>
+
+          <div class="result-item">
+            <div class="result-value">98%</div>
+            <div class="result-label">Customer satisfaction</div>
+          </div>
+
+          <div class="result-item">
+            <div class="result-value">24</div>
+            <div class="result-label">Awards won</div>
+          </div>
+
+          <div class="result-item">
+            <div class="result-value">4.9</div>
+            <div class="result-label">Average rating</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>© 2025 Headphones — Crafted with care</p>
+    </div>
+  </footer>
+</body>
+</html>
