@@ -1,0 +1,266 @@
+/* 0-styles.css
+   Header / Hero implementation for the headphones landing.
+   - reset
+   - variables
+   - layout
+   - responsive at 480px
+*/
+
+/* -------------------------
+   CSS Reset (minimal)
+   ------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* -------------------------
+   Variables
+   ------------------------- */
+:root{
+  --bg: #ffffff;
+  --muted: #7a7a7a;
+  --accent: #FF6565; /* hover color */
+  --primary: #1f2937;
+  --accent-2: #ff7a7a;
+  --container-max: 1000px;
+  --gap: 20px;
+  --radius: 10px;
+  --shadow: 0 6px 20px rgba(31,41,55,0.08);
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* -------------------------
+   Base styles
+   ------------------------- */
+body {
+  font-family: var(--font-sans);
+  background: linear-gradient(180deg, #fafafc 0%, #f3f6fb 100%);
+  color: var(--primary);
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* center content and limit width */
+.container {
+  width: 90%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+}
+
+/* -------------------------
+   Header
+   ------------------------- */
+.site-header {
+  padding: 18px 0;
+  background: transparent;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.site-header .container {
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* brand / logo */
+.brand .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.logo-icon {
+  display: inline-block;
+  font-size: 1.6rem;
+  color: var(--accent-2);
+}
+
+/* nav */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 600;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: color 150ms ease, background 150ms ease;
+}
+
+.main-nav a:hover,
+.main-nav a:active {
+  color: var(--accent);
+}
+
+/* cta group (right) */
+.cta-group {
+  display: flex;
+  gap: 10px;
+}
+
+/* -------------------------
+   Buttons
+   ------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, #ff7a7a 0%, #ff6565 100%);
+  color: white;
+  border: none;
+  box-shadow: var(--shadow);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid rgba(31,41,55,0.06);
+}
+
+.btn:hover,
+.btn:active {
+  opacity: 0.9; /* required */
+  transform: translateY(-1px);
+}
+
+/* -------------------------
+   Hero
+   ------------------------- */
+.hero {
+  padding: 48px 0;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 24px;
+  align-items: center;
+}
+
+/* hero left */
+.hero-left h1 {
+  font-size: 2.05rem;
+  line-height: 1.05;
+  margin-bottom: 14px;
+}
+
+.hero-sub {
+  color: var(--muted);
+  margin-bottom: 18px;
+  max-width: 60ch;
+}
+
+/* action buttons inside hero */
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+/* features small list */
+.features-list {
+  list-style: none;
+  margin-top: 12px;
+  color: var(--muted);
+  display: flex;
+  gap: 18px;
+}
+
+/* hero right - decorative device */
+.hero-right {
+  display: flex;
+  justify-content: center;
+}
+
+/* draw a decorative "headphone device" purely with CSS */
+.hero-device{
+  width: 320px;
+  height: 320px;
+  border-radius: 24px;
+  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #fff6f6 18%, #ffecec 55%, #ffd6d6 100%);
+  box-shadow: 0 20px 40px rgba(255,101,101,0.08);
+  border: 8px solid rgba(255,101,101,0.06);
+  position: relative;
+}
+
+/* small earcup circles to mimic headphone shape */
+.hero-device::before,
+.hero-device::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 130px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #fff 0%, #ffe7e7 100%);
+  top: 90px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+}
+.hero-device::before { left: -48px; transform: rotate(-12deg); }
+.hero-device::after { right: -48px; transform: rotate(12deg); }
+
+/* -------------------------
+   Footer
+   ------------------------- */
+.site-footer {
+  padding: 28px 0;
+  margin-top: 48px;
+  border-top: 1px solid rgba(31,41,55,0.05);
+  color: var(--muted);
+}
+
+/* -------------------------
+   Responsive: mobile break at 480px or less
+   ------------------------- */
+@media (max-width: 480px) {
+  .container { width: 92%; }
+  .main-nav { display: none; } /* desktop nav hidden on mobile for now */
+  .cta-group { display: none; } /* hide large CTAs */
+  .hero-grid { grid-template-columns: 1fr; gap: 14px; }
+  .hero-left h1 { font-size: 1.5rem; }
+  .hero-device { width: 220px; height: 220px; }
+  .logo-text { display: none; } /* show compact brand */
+}
+
+/* Accessibility focus states */
+a:focus, button:focus {
+  outline: 3px solid rgba(255,101,101,0.18);
+  outline-offset: 2px;
+}

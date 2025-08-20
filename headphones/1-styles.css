@@ -1,0 +1,106 @@
+/* 1-styles.css
+   Styles for "What we do..." section
+   Assumes base styles from 0-styles.css are loaded first
+*/
+
+/* Optional: if you have holberton icon font, uncomment and point to the files
+@font-face {
+  font-family: 'HolbertonIcons';
+  src: url('fonts/holberton.eot');
+  src: url('fonts/holberton.eot?#iefix') format('embedded-opentype'),
+       url('fonts/holberton.woff2') format('woff2'),
+       url('fonts/holberton.woff') format('woff'),
+       url('fonts/holberton.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+.icon { font-family: 'HolbertonIcons'; speak: none; }
+*/
+
+/* Section spacing */
+.what-we-do {
+  padding: 40px 0;
+  background: linear-gradient(180deg, rgba(255,250,250,0.6), rgba(255,255,255,0.4));
+}
+
+/* Title */
+.section-title {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+/* Lead paragraph */
+.section-lead {
+  color: var(--muted);
+  margin-bottom: 20px;
+  max-width: 60ch;
+}
+
+/* Cards grid */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 12px;
+}
+
+/* Card */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(31,41,55,0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  min-height: 160px;
+}
+
+/* Icon container */
+.card .icon {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: linear-gradient(180deg,#fff5f5,#fff0f0);
+}
+
+/* Title & text */
+.card-title {
+  font-size: 1.05rem;
+  margin: 0;
+}
+.card-text {
+  color: var(--muted);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Hover: subtle lift and accent color on title */
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(31,41,55,0.08);
+}
+.card:hover .card-title {
+  color: var(--accent);
+}
+
+/* Responsive: <= 480px -> single column */
+@media (max-width: 480px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 1.05rem;
+  }
+
+  .section-lead {
+    font-size: 0.95rem;
+  }
+}
