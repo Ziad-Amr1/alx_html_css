@@ -1,0 +1,135 @@
+/* 8-styles.css
+   Hamburger menu styles + mobile sliding menu + smooth animations
+   Depends on base styles (0-styles.css)
+*/
+
+/* Hide the hamburger on larger screens, show nav normally */
+.hamburger { display: none; }
+
+/* Mobile nav (hidden by default) */
+.mobile-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  box-shadow: 0 12px 30px rgba(31,41,55,0.08);
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 360ms cubic-bezier(.2,.8,.2,1), opacity 260ms ease;
+  opacity: 0;
+  z-index: 50;
+}
+
+/* when open, expand (we'll toggle .open on mobile-nav) */
+.mobile-nav.open {
+  max-height: 320px; /* enough room for list; if more items -> increase */
+  opacity: 1;
+}
+
+/* mobile nav list */
+.mobile-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 12px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.mobile-nav-list a {
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #111827;
+  text-decoration: none;
+}
+.mobile-nav-list a:hover,
+.mobile-nav-list a:focus {
+  color: #FF6565;
+  background: rgba(255,101,101,0.04);
+}
+
+/* hamburger button design */
+.hamburger {
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 8px;
+  margin-left: 8px;
+}
+.hamburger-box {
+  width: 34px;
+  height: 22px;
+  display: inline-block;
+  position: relative;
+}
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  width: 34px;
+  height: 3px;
+  background-color: #111827;
+  border-radius: 3px;
+  position: absolute;
+  left: 0;
+  transition: transform 240ms ease, opacity 200ms ease;
+}
+.hamburger-inner { top: 50%; transform: translateY(-50%); }
+.hamburger-inner::before { content: ""; top: -10px; }
+.hamburger-inner::after { content: ""; top: 10px; }
+
+/* when hamburger has .is-active -> animate to X */
+.hamburger.is-active .hamburger-inner {
+  transform: rotate(45deg);
+}
+.hamburger.is-active .hamburger-inner::before {
+  transform: rotate(90deg) translateX(0);
+  top: 0;
+  opacity: 0;
+}
+.hamburger.is-active .hamburger-inner::after {
+  transform: rotate(-90deg);
+  top: 0;
+  opacity: 0;
+}
+
+/* header layout tweaks so mobile nav sits under header */
+.header-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+/* hide desktop nav and CTA on mobile, show hamburger */
+@media (max-width: 480px) {
+  .main-nav { display: none !important; }
+  .header-cta { display: none !important; }
+  .hamburger { display: inline-block; }
+
+  /* Position mobile nav below header and full-width */
+  .mobile-nav {
+    left: 0;
+    right: 0;
+  }
+}
+
+/* accessibility focus style for hamburger */
+.hamburger:focus {
+  outline: 3px solid rgba(255,101,101,0.12);
+  outline-offset: 3px;
+}
+
+/* small animation for nav items when opening */
+.mobile-nav.open .mobile-nav-list a {
+  animation: slideIn 360ms ease both;
+}
+@keyframes slideIn {
+  from { transform: translateY(-6px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* keep desktop visuals intact: ensure nav-list links visible on wide screens */
+@media (min-width: 481px) {
+  #nav-list { display: flex; gap: 18px; align-items: center; }
+}

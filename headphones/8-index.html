@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Headphones — Hamburger Menu</title>
+
+  <!-- Base styles from the project (ensure these exist) -->
+  <link rel="stylesheet" href="0-styles.css">
+  <link rel="stylesheet" href="7-styles.css">
+
+  <!-- Task-specific styles -->
+  <link rel="stylesheet" href="8-styles.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container header-row">
+      <div class="brand">
+        <a href="#" class="logo" aria-label="Headphones home">
+          <span class="logo-icon" aria-hidden="true">🎧</span>
+          <span class="logo-text">Headphones</span>
+        </a>
+      </div>
+
+      <!-- Nav: normal desktop nav -->
+      <nav id="main-nav" class="main-nav" role="navigation" aria-label="Main Navigation">
+        <ul id="nav-list" class="nav-list">
+          <li><a href="0-index.html">Home</a></li>
+          <li><a href="1-index.html">What we do</a></li>
+          <li><a href="2-index.html">Results</a></li>
+          <li><a href="4-index.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Hamburger button (hidden on desktop, visible on small screens) -->
+      <button id="hamburger" class="hamburger" aria-controls="nav-list" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="hamburger-box">
+          <span class="hamburger-inner" aria-hidden="true"></span>
+        </span>
+      </button>
+
+      <!-- CTA group (kept for desktop; hidden on small screens) -->
+      <div class="cta-group header-cta">
+        <a class="btn btn-primary" href="#">Get started</a>
+      </div>
+    </div>
+
+    <!-- Mobile sliding menu (duplicate of nav-list for better animation/control) -->
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile Navigation" hidden>
+      <ul class="mobile-nav-list">
+        <li><a href="0-index.html">Home</a></li>
+        <li><a href="1-index.html">What we do</a></li>
+        <li><a href="2-index.html">Results</a></li>
+        <li><a href="4-index.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- (reuse hero + content from previous tasks) -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <h1 id="hero-title">Sound reimagined — premium audio for creators</h1>
+          <p class="hero-sub">
+            Immerse yourself in studio-quality sound with modern wireless design and extended battery life.
+          </p>
+        </div>
+
+        <div class="hero-right" aria-hidden="true">
+          <div class="hero-device" role="img" aria-label="Headphones product image"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Minimal content to test menu -->
+    <section class="what-we-do">
+      <div class="container">
+        <h2 class="section-title">What we do</h2>
+        <p class="section-lead">We craft high quality audio gear.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>© 2025 Headphones — Crafted with care</p>
+    </div>
+  </footer>
+
+  <script src="8-script.js" defer></script>
+</body>
+</html>
