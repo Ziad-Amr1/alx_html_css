@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Headphones — Our results (CSS pentagons)</title>
+  <link rel="stylesheet" href="0-styles.css">  <!-- base shared styles -->
+  <link rel="stylesheet" href="2-styles.css">  <!-- results styles -->
+  <link rel="stylesheet" href="6-styles.css">  <!-- this task overrides/adds shapes -->
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- header -->
+    <header class="site-header" role="banner">
+      <div class="container">
+        <div class="brand">
+          <a href="#" class="logo" aria-label="Headphones home">
+            <span class="logo-icon" aria-hidden="true">&#127911;</span>
+            <span class="logo-text">Headphones</span>
+          </a>
+        </div>
+
+        <nav class="main-nav" role="navigation" aria-label="Main Navigation">
+          <ul>
+            <li><a href="0-index.html">Home</a></li>
+            <li><a href="1-index.html">What we do</a></li>
+            <li><a href="2-index.html" aria-current="page">Results</a></li>
+            <li><a href="4-index.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="cta-group">
+          <a class="btn btn-primary" href="#">Get started</a>
+          <a class="btn btn-ghost" href="#">Learn more</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- hero (reuse) -->
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+          <div class="hero-left">
+            <h1 id="hero-title">Sound reimagined — premium audio for creators</h1>
+            <p class="hero-sub">
+              Immerse yourself in studio-quality sound with modern wireless design and extended battery life.
+            </p>
+          </div>
+
+          <div class="hero-right" aria-hidden="true">
+            <div class="hero-device" role="img" aria-label="Headphones product image"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT WE DO (reuse) -->
+      <section class="what-we-do" aria-labelledby="what-title">
+        <div class="container">
+          <h2 id="what-title" class="section-title">What we do</h2>
+          <p class="section-lead">We craft high quality audio gear that helps creators produce, listen and share their best work.</p>
+        </div>
+      </section>
+
+      <!-- OUR RESULTS (with CSS pentagons as background shapes) -->
+      <section class="our-results" aria-labelledby="results-title">
+        <div class="container">
+          <h2 id="results-title" class="section-title">Our results</h2>
+          <p class="section-lead">Numbers that show our impact — from product adoption to customer satisfaction.</p>
+
+          <div class="results-grid">
+            <div class="result-item">
+              <div class="result-value">1.2M</div>
+              <div class="result-label">Users worldwide</div>
+            </div>
+
+            <div class="result-item">
+              <div class="result-value">98%</div>
+              <div class="result-label">Customer satisfaction</div>
+            </div>
+
+            <div class="result-item">
+              <div class="result-value">24</div>
+              <div class="result-label">Awards won</div>
+            </div>
+
+            <div class="result-item">
+              <div class="result-value">4.9</div>
+              <div class="result-label">Average rating</div>
+            </div>
+          </div>
+
+          <!-- decorative pentagon shapes created with HTML & CSS -->
+          <div class="results-bg" aria-hidden="true">
+            <!-- multiple pentagon elements, positioned absolutely -->
+            <div class="pentagon p1"></div>
+            <div class="pentagon p2"></div>
+            <div class="pentagon p3"></div>
+            <div class="pentagon p4"></div>
+            <div class="pentagon p5"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <p>© 2025 Headphones — Crafted with care</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

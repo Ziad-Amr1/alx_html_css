@@ -1,0 +1,59 @@
+/* 6-styles.css
+   Draw pentagon shapes purely with CSS and place them as decorative background
+   for the "Our results" section. No image files used.
+*/
+
+/* ensure results container is relatively positioned to host absolutely positioned shapes */
+.our-results {
+  position: relative;
+  overflow: visible; /* allow shapes to overflow a bit */
+  padding-bottom: 80px; /* extra room for absolute shapes */
+}
+
+/* wrapper for decorative shapes */
+.results-bg {
+  position: absolute;
+  right: -60px;
+  top: 10px;
+  width: 420px;
+  height: 420px;
+  pointer-events: none;
+  z-index: 0; /* behind content */
+}
+
+/* Generic pentagon using clip-path polygon */
+.pentagon {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(180deg, #fff5f5 0%, #ffdede 100%);
+  box-shadow: 0 12px 30px rgba(31,41,55,0.06);
+  clip-path: polygon(50% 0%, 95% 35%, 78% 95%, 22% 95%, 5% 35%);
+  border-radius: 8px;
+  opacity: 0.95;
+  transform-origin: center;
+}
+
+/* different sizes / positions / rotations for visual richness */
+.p1 { width: 160px; height: 160px; right: 20px; top: 10px; transform: rotate(6deg) scale(1); background: linear-gradient(180deg,#fff7f7,#ffd6d6); }
+.p2 { width: 110px; height: 110px; right: 140px; top: 40px; transform: rotate(-10deg); background: linear-gradient(180deg,#fff6f6,#ffe8e8); opacity: 0.9; }
+.p3 { width: 90px; height: 90px; right: 80px; top: 160px; transform: rotate(18deg); background: linear-gradient(180deg,#fff8f8,#ffefef); opacity: 0.92; }
+.p4 { width: 130px; height: 130px; right: 200px; top: 160px; transform: rotate(-6deg) scale(0.98); background: linear-gradient(180deg,#fff6f7,#ffdede); opacity: 0.88; }
+.p5 { width: 60px; height: 60px; right: 260px; top: 80px; transform: rotate(34deg); background: linear-gradient(180deg,#fffaf9,#fff0f0); opacity: 0.95; }
+
+/* Put the content above shapes by raising z-index of grid items */
+.results-grid, .result-item {
+  position: relative;
+  z-index: 1;
+}
+
+/* fine-tune: make sure shapes don't cover content on small screens */
+@media (max-width: 880px) {
+  .results-bg { display: none; } /* hide decorations on medium/small screens */
+}
+
+/* small screens: keep layout single column */
+@media (max-width: 480px) {
+  .results-bg { display: none; }
+  .results-grid { grid-template-columns: 1fr; gap: 12px; }
+}
